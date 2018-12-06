@@ -12,9 +12,13 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
+	private AudioSource audioSource;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+		audioSource = GetComponent<AudioSource >();
     }
 
     //Speed
@@ -39,6 +43,8 @@ public class PlayerController : MonoBehaviour
             nextFire = Time.time + fireRate;
             //GameObject clone = 
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation); //as GameObject;
+
+			audioSource.Play ();
 
         }
     }
